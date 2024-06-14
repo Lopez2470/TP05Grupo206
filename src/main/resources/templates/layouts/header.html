@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<div class="container" data-th-fragment="header">
+
+		<a href="#" class="navbar-brand"> <img alt="logo"
+			data-th-src="@{/images/Fi-unju.png}" width="350">
+			
+			
+		</a>
+
+
+		<p class="text-info-emphasis mt-2">"Formar Experiencia para Forjar
+			un Futuro"</p>
+
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+			<div class="container">
+				<a href="#" class="navbar-brand"> <img alt="logo"
+					data-th-src="@{/images/logo-fi.png}" width="100">
+				</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#menu-principal"
+					aria-controls="menu-principal" aria-expanded="false"
+					aria-label="Despliegue del navegador de Opciones">
+					<span class="navbar-toggler-icon"></span>
+
+				</button>
+				
+				<div class="collapse navbar-collapse" id="menu-principal">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item"><a href="/inicio" class="nav-link active">Inicio</a>
+					</li>
+					
+					<li class="nav-item"><a class="nav-link"
+						aria-current="page" href="#">Noticias</a>
+					</li>
+					
+					
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Carrera</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/formCarrera">Nueva Carrera</a></li>
+							<li><a class="dropdown-item" href="/listaDeCarreras">Carreras</a></li>
+						</ul>
+					</li>
+					
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Materia</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/formCarrera">Nueva Materia</a></li>
+							<li><a class="dropdown-item" href="/listaDeCarreras">Materias</a></li>
+						</ul>
+					</li>
+					
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Docente</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/formDocente">Nuevo Docente</a></li>
+							<li><a class="dropdown-item" href="/listaDeDocentes">Docentes</a></li>
+						</ul>
+					</li>
+					
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Alumno</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/formAlumno">Nuevo Alumno</a></li>
+							<li><a class="dropdown-item" href="/listaDeAlumnos">Alumnos</a></li>
+						</ul>
+					</li>
+					
+					
+					<li class="nav-item"><a class="nav-link"
+						aria-current="page" href="#">Contacto</a>
+					</li>		
+									
+					<li class="nav-item"><a class="nav-link"
+						aria-current="page" href="#">Acerca de</a>
+					</li>				
+
+				</ul>
+			</div>
+				        			
+			</div>
+		</nav>
+	</div>
+</body>
+</html>
