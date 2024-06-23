@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Docente</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link data-th-rel="stylesheet"
+			data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link data-th-rel="stylesheet"
+			data-th-href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}">
+	</head>
+	<body>
+		<header class="bg-light text-white text-center py-3">
+		<div data-th-replace="~{layouts/header::header}"></div>
+		</header>
+			
+		<div class="container row justify-content-center">
+			<main class="col-sm-4 col-sm-offset-4 ">
+			<h2>FORMULARIO DOCENTE</h2>
+	
+	
+	
+				<form data-th-object="${nuevoDocente}" 
+				 data-th-action="${estado}?@{/modificarDocente}:@{/guardarDocente}" method="post">
+					<div>
+						<label for="legajo" class="form-label">Legajo</label> 
+						<input type="text" class="form-control"
+							id="legajo" data-th-field="*{legajo}"
+							aria-describedby="Legajo Dcoente"
+							data-th-readonly="${estado}"
+							required="required"
+							>
+						
+					</div>
+					
+					<div>
+						<label for="nombresDocente" class="form-label">Nombres</label>
+						<input type="text" class="form-control"
+							id="nombresDocente" data-th-field="*{nombres}"
+							required="required">
+					</div>
+					
+					<div>
+						<label for="apellidoDocente" class="form-label">Apellido</label>
+						<input type="text" class="form-control"
+							id="apellidoDocente" data-th-field="*{apellido}"
+							required="required">
+					</div>
+									
+					
+					<div>
+					    <label for="email1" class="form-label">Correo Electronico</label>
+					    <input type="email" class="form-control" id="email1" aria-describedby="emailHelp"
+					    data-th-field="*{email}" required="required">
+					    
+				  </div>
+				  
+				  <div>
+				    <label for="telefono" class="form-label">Número de Télefono</label>
+				    <input type="text" class="form-control" id="telefono" 
+				    data-th-field="*{telefono}" title="Ejemplo: 3885444555." required>		    
+				</div>
+					
+					
+					<button type="submit" class="btn btn-primary">Guardar Carrera</button>
+				</form>
+	
+			</main>
+		</div>
+		<footer class="bg-dark text-white text-center py-3">
+	<div data-th-replace="~{layouts/footer::footer}"></div>
+
+	</footer>
+		<script type="text/javascript"
+			data-th-href="@{/webjars/bootstrap/js/bootstrap.bundel.min.js}">
+		</script>
+	</body>
+</html>
