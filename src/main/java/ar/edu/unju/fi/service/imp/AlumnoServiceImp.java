@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.fi.DTO.AlumnoDTO;
+import ar.edu.unju.fi.map.AlumnoMapDTO;
 import ar.edu.unju.fi.model.Alumno;
 import ar.edu.unju.fi.repository.AlumnoRepository;
 import ar.edu.unju.fi.service.IAlumnoService;
@@ -12,6 +14,9 @@ import ar.edu.unju.fi.service.IAlumnoService;
 public class AlumnoServiceImp implements IAlumnoService {
 	@Autowired
 	AlumnoRepository alumnoRepository;
+	
+	@Autowired
+	AlumnoMapDTO alumnoMapDTO;
 
 	@Override
 	public void guardarAlumno(Alumno alumno) {
@@ -20,8 +25,8 @@ public class AlumnoServiceImp implements IAlumnoService {
 	}
 
 	@Override
-	public List<Alumno> mostrarAlumnos() {
-		return alumnoRepository.findAlumnoByEstado(true);
+	public List<AlumnoDTO> mostrarAlumnos() {
+		return alumnoMapDTO.convertirListaAlumnosAListaAlumnosDTO(alumnoRepository.findAlumnoByEstado(true));
 	}
 
 	@Override
