@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Materia</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link data-th-rel="stylesheet"
+			data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link data-th-rel="stylesheet"
+			data-th-href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}">
+	</head>
+	<body>
+		<header class="bg-light text-white text-center py-3">
+		<div data-th-replace="~{layouts/header::header}"></div>
+		</header>
+			
+		<div class="container row justify-content-center">
+			<main class="col-sm-4 col-sm-offset-4 ">
+			<h2>FORMULARIO MATERIA</h2>
+	
+	
+	
+				<form data-th-object="${nuevaMateria}" 
+				 data-th-action="${estado}?@{/modificarMateria}:@{/guardarMateria}" method="post">
+					<div>
+						<label for="codigo" class="form-label">Codigo</label> 
+						<input type="text" class="form-control"
+							id="codigo" data-th-field="*{codigo}"
+							aria-describedby="Codigo Materia"
+							data-th-readonly="${estado}"
+							>	
+					</div>
+					
+					<div>
+						<label for="nombreMateria" class="form-label">Nombre</label>
+						<input type="text" class="form-control"
+							id="nombresMateria" data-th-field="*{nombre}"
+							required="required">
+					</div>
+					
+					<div>
+						<label for="curso" class="form-label">Curso</label>
+						<input type="text" class="form-control"
+							id="curso" data-th-field="*{curso}"
+							required="required">
+					</div>
+					
+					<div>
+						<label for="horas" class="form-label">Cant. Horas</label>
+						<input type="number" class="form-control"
+							id="horas" data-th-field="*{horas}">
+					</div>
+					
+					<div>
+						<label for="modalidad" class="form-label">Modalidad</label>
+							<div >
+								<select class="form-select bg-dark text-white" id="modalidad"  
+										data-th-field="*{modalidad}">
+										<option value="">Elegir...</option>
+										<option value="Virtual">Virtual</option>
+										<option value="Presencial">Presencial</option>
+								</select>
+							</div>
+					</div>
+					
+					<!-- <div>
+						<label for="docente" class="form-label">Docente</label>
+							<select id="docente" data-th-field="*{docente.legajo}"
+							class="form-select bg-dark text-white">
+										<option value="">Seleccionar Docente</option>
+										<option data-th-each="d : ${listadoDocentes}"
+										data-th-value="${d.legajo}"
+										data-th-text="${d.apellido}"></option>
+										
+										
+										
+								</select>
+						
+					</div>
+					<br>
+			
+					<div>
+						<label for="carrera" class="form-label">Carrera</label>
+						
+								<select id="carrera"  data-th-field="*{carrera.codigo}"
+									class="form-select bg-dark text-white">
+										<option value="">Seleccionar Carrera</option>
+										<option data-th-each="c : ${listadoCarreras}"
+										data-th-value="${c.codigo}"
+										data-th-text="${c.nombre}"></option>
+										
+								</select>
+						
+					</div> -->
+					<br>
+		
+					
+					<button type="submit" class="btn btn-primary">Guardar Materia</button>
+				</form>
+	
+			</main>
+		</div>
+		<footer class="bg-dark text-white text-center py-3">
+	<div data-th-replace="~{layouts/footer::footer}"></div>
+
+	</footer>
+	<script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+		<!-- <script type="text/javascript"
+			data-th-href="@{/webjars/bootstrap/js/bootstrap.bundel.min.js}">
+		</script> -->
+	</body>
+</html>
