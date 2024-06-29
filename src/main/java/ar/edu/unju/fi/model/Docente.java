@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.model;
+
 import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
@@ -7,10 +9,13 @@ import lombok.Data;
 @Component
 @Data
 @Entity
-public class Carrera {
+public class Docente {
 	@Id
-	private String codigo;
-	private String nombre;
-	private Integer duracion;
+	private String legajo;
+	private String nombres;
+	private String apellido;
+	private String email;
+	private String telefono;
 	private Boolean estado;
+
 }
