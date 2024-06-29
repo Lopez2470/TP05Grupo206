@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.fi.DTO.MateriaDTO;
+import ar.edu.unju.fi.map.MateriaMapDTO;
 import ar.edu.unju.fi.model.Materia;
 import ar.edu.unju.fi.repository.MateriaRepository;
 import ar.edu.unju.fi.service.IMateriaService;
@@ -12,6 +14,9 @@ import ar.edu.unju.fi.service.IMateriaService;
 public class MateriaServiceImp implements IMateriaService{
 	@Autowired
 	MateriaRepository materiaRepository;
+	
+	@Autowired
+	MateriaMapDTO materiaMapDTO;
 
 	@Override
 	public void guardarMateria(Materia materia) {
@@ -20,8 +25,8 @@ public class MateriaServiceImp implements IMateriaService{
 	}
 
 	@Override
-	public List<Materia> mostrarMaterias() {
-		return materiaRepository.findMateriaByEstado(true);
+	public List<MateriaDTO> mostrarMaterias() {
+		return materiaMapDTO.convertirListaMateriasAListaMateriasDTO(materiaRepository.findMateriaByEstado(true));
 	}
 
 	@Override
@@ -34,16 +39,12 @@ public class MateriaServiceImp implements IMateriaService{
 	@Override
 	public void modificarMateria(Materia materiaModificada) {
 		materiaModificada.setEstado(true);
-		materiaRepository.save(materiaModificada);
-		
+		materiaRepository.save(materiaModificada);	
 	}
 
 	@Override
 	public Materia buscarMateriaPorCodigo(String codigo) {
 		return materiaRepository.findById(codigo).orElse(null);
 	}
-
-
-	
 	
 }
