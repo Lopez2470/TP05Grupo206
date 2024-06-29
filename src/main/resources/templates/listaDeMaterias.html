@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>MateriaListado</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link data-th-rel="stylesheet"
+			data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link data-th-rel="stylesheet"
+			data-th-href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}">
+	</head>
+	<body>
+		<header class="bg-light text-white text-center py-3">
+		<div data-th-replace="~{layouts/header::header}"></div>
+		</header>
+			
+		<div class="container row justify-content-center">
+			<main class="col-sm-10 col-sm-offset-8 ">
+			<h2>LISTA DE MATERIAS</h2>
+			<table class="table table-striped">
+				<thead>
+				 	<tr>
+				 		<th scope="col">Codigo</th>
+					    <th scope="col">Nombre</th>
+					    <th scope="col">Curso</th>
+					    <th scope="col">Duracion</th>
+					    <th scope="col">Modalidad</th>
+					    <!-- <th scope="col">Docente</th>
+					    <th scope="col">Carrera</th> -->
+					    <th scope="col">Estado</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-each="materia : ${listadoMaterias}">
+						<td data-th-text="${materia.codigo}"></td>
+					    <td data-th-text="${materia.nombre}"></td>
+					    <td data-th-text="${materia.curso}"></td>
+					    <td data-th-text="${materia.horas}"></td>
+					    <td data-th-text="${materia.modalidad}"></td>
+<!-- 					    <td data-th-text="${materia.docente.apellido}"></td>
+					    <td data-th-text="${materia.carrera.nombre}"></td> -->
+					    <td data-th-text="${materia.estado}"></td>
+					    <td>
+					    	<a data-th-href="@{'/eliminarMateria/'+${materia.codigo}}" class="btn btn-danger">Eliminar</a>
+					    	
+					    	<a data-th-href="@{'/modificarMateria/'+${materia.codigo}}" class="btn btn-warning ms-2">Modificar</a>
+					    </td>
+					 </tr>
+				</tbody>
+			</table>
+	
+				
+	
+			</main>
+		</div>
+		<footer class="container bg-dark text-white text-center py-3">
+	<div data-th-replace="~{layouts/footer::footer}"></div>
+
+	</footer>
+		<!-- <script type="text/javascript"
+			data-th-href="@{/webjars/bootstrap/js/bootstrap.bundel.min.js}">
+		</script> -->
+		<script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>
