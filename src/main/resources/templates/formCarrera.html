@@ -18,8 +18,6 @@
 			<main class="col-sm-4 col-sm-offset-4 ">
 			<h2>FORMULARIO CARRERA</h2>
 	
-	
-	
 				<form data-th-object="${nuevaCarrera}" 
 				 data-th-action="${estado}?@{/modificarCarrera}:@{/guardarCarrera}" method="post">
 					<div>
@@ -28,23 +26,29 @@
 							id="codigo" data-th-field="*{codigo}"
 							aria-describedby="Codigo Carrera"
 							data-th-readonly="${estado}"
-							>
+							required>
+						<div class="text-danger" data-th-if="${#fields.hasErrors('codigo')}" data-th-errors="*{codigo}"></div>
 						
 					</div>
 					
 					<div>
 						<label for="nombreCarrera" class="form-label">Nombre Carrera</label>
 						<input type="text" class="form-control"
-							id="nombreCarrera" data-th-field="*{nombre}">
+							id="nombreCarrera" data-th-field="*{nombre}"
+							required>
 					</div>
+					<div class="text-danger" data-th-if="${#fields.hasErrors('nombre')}" data-th-errors="*{nombre}"></div>
 					
 					
 					<div>
 						<label for="duracion" class="form-label">Duracion</label>
 						<input type="number" class="form-control"
-							id="duracion" data-th-field="*{duracion}">
-					</div><br>
-					
+							id="duracion" data-th-field="*{duracion}"
+							required>
+					</div>
+					<div class="text-danger" data-th-if="${#fields.hasErrors('duracion')}" data-th-errors="*{duracion}">
+					</div>
+					<br>
 					<button type="submit" class="btn btn-primary">Guardar Carrera</button>
 				</form>
 	
@@ -55,8 +59,5 @@
 
 	</footer>
 	<script data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
-		<!-- <script type="text/javascript"
-			data-th-href="@{/webjars/bootstrap/js/bootstrap.bundel.min.js}">
-		</script> -->
 	</body>
 </html>
