@@ -48,7 +48,9 @@
 					 </tr>
 				</tbody>
 			</table>
-	
+			<div class="alert alert-danger" role="alert" data-th-if="${unsave}">
+				<p data-th-text="${cargaDeMateriaErrorMsj}"></p>
+			</div>
 				
 	
 			</main>
