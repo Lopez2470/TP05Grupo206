@@ -42,5 +42,4 @@ public class Docente {
 	private String telefono;
 	
 	private Boolean estado;
-
 }

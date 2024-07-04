@@ -22,14 +22,15 @@
 	
 				<form data-th-object="${nuevoDocente}" 
 				 data-th-action="${estado}?@{/modificarDocente}:@{/guardarDocente}" method="post">
+					
 					<div>
 						<label for="legajo" class="form-label">Legajo</label> 
 						<input type="text" class="form-control"
 							id="legajo" data-th-field="*{legajo}"
 							aria-describedby="Legajo Dcoente"
 							data-th-readonly="${estado}"
-							required="required"
-							>
+							required="required">
+						<div class="text-danger" data-th-if="${#fields.hasErrors('legajo')}" data-th-errors="*{legajo}"></div>
 						
 					</div>
 					
@@ -38,6 +39,7 @@
 						<input type="text" class="form-control"
 							id="nombresDocente" data-th-field="*{nombres}"
 							required="required">
+						<div class="text-danger" data-th-if="${#fields.hasErrors('nombres')}" data-th-errors="*{nombres}"></div>	
 					</div>
 					
 					<div>
@@ -45,6 +47,7 @@
 						<input type="text" class="form-control"
 							id="apellidoDocente" data-th-field="*{apellido}"
 							required="required">
+							<div class="text-danger" data-th-if="${#fields.hasErrors('apellido')}" data-th-errors="*{apellido}"></div>
 					</div>
 									
 					
@@ -52,13 +55,14 @@
 					    <label for="email1" class="form-label">Correo Electronico</label>
 					    <input type="email" class="form-control" id="email1" aria-describedby="emailHelp"
 					    data-th-field="*{email}" required="required">
-					    
+					    <div class="text-danger" data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}"></div>
 				  </div>
 				  
 				  <div>
 				    <label for="telefono" class="form-label">Número de Télefono</label>
 				    <input type="text" class="form-control" id="telefono" 
-				    data-th-field="*{telefono}" title="Ejemplo: 3885444555." required>		    
+				    data-th-field="*{telefono}" title="Ejemplo: 3885444555." required>	
+				     <div class="text-danger" data-th-if="${#fields.hasErrors('telefono')}" data-th-errors="*{telefono}"></div>	    
 				</div>
 					
 					

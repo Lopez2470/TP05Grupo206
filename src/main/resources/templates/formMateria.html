@@ -27,8 +27,8 @@
 						<input type="text" class="form-control"
 							id="codigo" data-th-field="*{codigo}"
 							aria-describedby="Codigo Materia"
-							data-th-readonly="${estado}"
-							>	
+							data-th-readonly="${estado}" required="required">
+							<div class="text-danger" data-th-if="${#fields.hasErrors('codigo')}" data-th-errors="*{codigo}"></div>	
 					</div>
 					
 					<div>
@@ -36,6 +36,7 @@
 						<input type="text" class="form-control"
 							id="nombresMateria" data-th-field="*{nombre}"
 							required="required">
+							<div class="text-danger" data-th-if="${#fields.hasErrors('nombre')}" data-th-errors="*{nombre}"></div>
 					</div>
 					
 					<div>
@@ -43,12 +44,14 @@
 						<input type="text" class="form-control"
 							id="curso" data-th-field="*{curso}"
 							required="required">
+							<div class="text-danger" data-th-if="${#fields.hasErrors('curso')}" data-th-errors="*{curso}"></div>
 					</div>
 					
 					<div>
 						<label for="horas" class="form-label">Cant. Horas</label>
 						<input type="number" class="form-control"
 							id="horas" data-th-field="*{horas}">
+							<div class="text-danger" data-th-if="${#fields.hasErrors('horas')}" data-th-errors="*{horas}"></div>
 					</div>
 					
 					<div>
@@ -61,6 +64,7 @@
 										<option value="Presencial">Presencial</option>
 								</select>
 							</div>
+							<div class="text-danger" data-th-if="${#fields.hasErrors('modalidad')}" data-th-errors="*{modalidad}"></div>
 					</div>
 					
 					<!-- <div>
@@ -75,6 +79,7 @@
 										
 										
 								</select>
+								<div class="text-danger" data-th-if="${#fields.hasErrors('nombre')}" data-th-errors="*{nombre}"></div>
 						
 					</div>
 					<br>
@@ -90,6 +95,7 @@
 										data-th-text="${c.nombre}"></option>
 										
 								</select>
+								<div class="text-danger" data-th-if="${#fields.hasErrors('nombre')}" data-th-errors="*{nombre}"></div>
 						
 					</div> -->
 					<br>
