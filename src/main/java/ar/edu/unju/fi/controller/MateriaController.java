@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import ar.edu.unju.fi.model.Alumno;
-import ar.edu.unju.fi.model.Carrera;
 import ar.edu.unju.fi.model.Materia;
 import ar.edu.unju.fi.service.ICarreraService;
 import ar.edu.unju.fi.service.IDocenteService;
@@ -76,7 +73,6 @@ public class MateriaController {
 			boolean unsave = true;
 			modelAndView.addObject("unsave", unsave);
 			modelAndView.addObject("cargaDeMateriaErrorMsj", "Error al cargar el nuevo objeto Materia");
-
 			
 		}
 		// ModelAndView modelAndView = new ModelAndView("listaDeMaterias");
@@ -138,43 +134,5 @@ public class MateriaController {
 
 	}
 	
-	/*
-		  @GetMapping("/formularioMateriaAlumno")
-	  public ModelAndView getFormulario() {
-			ModelAndView modelAndView = new ModelAndView("formMateriaAlumnos");
-			modelAndView.addObject("materia", materia);
-			modelAndView.addObject("materias", materiaService.mostrarMaterias());
-			System.out.println("carreras: "+ carreraService.mostrarCarreras());
-			return modelAndView;
-		}
-		
-	  @PostMapping("/filtrarAlumnosPorMateria")
-	  public ModelAndView filtrarAlumnos(@ModelAttribute("materia") Materia materiaDeAlumnos) {
-		 // String codigoC = materiaDeAlumnos.getCodigo();
-		 // List<Alumno> alumnos = materiaService.obtenerAlumnosPorMateria(materiaDeAlumnos.getCodigo());
-		  ModelAndView modelAndView = new ModelAndView("formMateriaAlumnos");
-		  modelAndView.addObject("alumnos", materiaService.obtenerAlumnosPorMateria(materiaDeAlumnos.getCodigo()));
-		  return modelAndView;  
-	  }
-	
-	
-	*/
-	
-	
-	
-	
-	
-	
-	/**/
-	/*@GetMapping("/mostrarMateriasDelAlumno")
-	
-	public ModelAndView getMateriasDelAlumno(@ModelAttribute("lu") String lu) {
-		Carrera carrera = carreraService.;
-		
-		ModelAndView modelAndView = new ModelAndView("formSeleccionMaterias");
-		modelAndView.addObject("materias", carrera.getMaterias());
-		return modelAndView;
-	}
-	*/
 
 }

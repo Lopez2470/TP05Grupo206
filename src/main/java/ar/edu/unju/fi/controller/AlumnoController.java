@@ -8,15 +8,11 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import ar.edu.unju.fi.DTO.MateriaDTO;
 import ar.edu.unju.fi.model.Alumno;
 import ar.edu.unju.fi.model.Carrera;
 import ar.edu.unju.fi.model.Materia;
@@ -170,21 +166,17 @@ public class AlumnoController {
 	
 	@PostMapping("/filtrarAlumnosPorMateria")
 	public ModelAndView filtrarAlumnos(@ModelAttribute("materia") Materia materiaDeAlumnos) {
-	//public ModelAndView filtrarAlumnos(@RequestParam("codigo") String codigo) {
-	//	System.out.println("codigo que viene: " + codigo);
-    //    Materia materia = materiaService.buscarMateriaPorCodigo(codigo);
+
 	
 		System.out.println("MATERIA QUE VIENE: " + materiaDeAlumnos);
 	  String codigoC = materiaDeAlumnos.getCodigo();
 	  System.out.println("VALOR DE codigoC: " +codigoC);
-		//Materia materiaAux = materiaService.buscarMateriaPorCodigo(codigoC);
-	//	System.out.println("MATERIA buscada: " + materiaAux);
-	  //List<Alumno> alumnos = materiaService.obtenerAlumnosPorMateria(codigoC);
+
 		List<Alumno> alumnos = alumnoService.buscarAlumnosPorMateria(materiaService.buscarMateriaPorCodigo(codigoC));
 	  
 	  ModelAndView modelAndView = new ModelAndView("formMateriaAlumnos");
 	 modelAndView.addObject("alumnos", alumnos);
-	  //modelAndView.addObject("alumnos", alumnoService.buscarAlumnosPorMateria(materia));
+
 	  return modelAndView;  
 }
 
