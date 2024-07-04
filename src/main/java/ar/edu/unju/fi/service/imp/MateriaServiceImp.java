@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.DTO.MateriaDTO;
 import ar.edu.unju.fi.map.MateriaMapDTO;
+import ar.edu.unju.fi.model.Alumno;
+import ar.edu.unju.fi.model.Carrera;
 import ar.edu.unju.fi.model.Materia;
 import ar.edu.unju.fi.repository.MateriaRepository;
 import ar.edu.unju.fi.service.IMateriaService;
@@ -45,6 +47,19 @@ public class MateriaServiceImp implements IMateriaService{
 	@Override
 	public Materia buscarMateriaPorCodigo(String codigo) {
 		return materiaRepository.findById(codigo).orElse(null);
+	}
+
+	@Override
+	public Materia buscarMateriaPorCarrera(Carrera carrera) {
+		// TODO Auto-generated method stub
+		return (Materia) materiaRepository.findMateriaByCarrera(carrera);
+	}
+
+
+	@Override
+	public List<Alumno> obtenerAlumnosPorMateria(String codigo) {
+		// TODO Auto-generated method stub
+		return materiaRepository.findAlumnosByCodigo(codigo);
 	}
 	
 }

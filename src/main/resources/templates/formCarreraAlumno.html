@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Alumno</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link data-th-rel="stylesheet"
+	data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link data-th-rel="stylesheet"
+	data-th-href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}">
+</head>
+<body>
+	<header class="bg-light text-white text-center py-3">
+		<div data-th-replace="~{layouts/header::header}"></div>
+	</header>
+
+	<div class="container row justify-content-center">
+		<main class="col-sm-10 col-sm-offset-1 ">
+			<h3>Consulta de Alumnos por Carrera</h3>
+
+			<div >
+				<form data-th-action="@{/mostrarAlumnosPorCarrera}"
+					data-th-object="${carrera}" method="post">
+
+
+					<div class="form-group col-sm-3 mb-3">
+						<label for="carrera" class="form-label">Selecciona una carrera:</label> 
+						<select  id="carrera" class="form-select bg-dark text-white"
+								data-th-field="*{codigo}">
+							<option value="">Seleccionar Carrera</option>
+							<option data-th-each="carrera : ${carreras}"
+								data-th-value="${carrera.codigo}"
+								data-th-text="${carrera.nombre}"></option>
+						</select>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Mostrar Alumnos</button>
+				</form>
+			</div>
+
+			<div class="container row justify-content-center">
+				<div class="col-sm-12 col-sm-offset-1 ">
+					<h2>LISTA DE ALUMNOS</h2>
+					<table class="table table-striped ">
+						<thead>
+							<tr>
+								<th scope="col">LU</th>
+								<th scope="col">Nombres y Apellido</th>
+								<th scope="col">DNI</th>
+								<th scope="col">Email</th>
+								<th scope="col">Telefono</th>
+								<th scope="col">Fecha de Nac</th>
+
+								<th scope="col">Estado</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-th-each="alumno : ${alumnos}">
+								<td data-th-text="${alumno.lu}"></td>
+								<td data-th-text="${alumno.nombres}+', '+${alumno.apellido}"></td>
+								<td data-th-text="${alumno.dni}"></td>
+								<td data-th-text="${alumno.email}"></td>
+								<td data-th-text="${alumno.telefono}"></td>
+								<td	data-th-text="${#temporals.format(alumno.fechaNacimiento, 'dd-MM-yyyy')}"></td>
+								<td data-th-text="${alumno.estado}"></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+			<div class="text-end">
+			
+			
+        	<a data-th-href="@{/formularioCarreraAlumno}" class="btn btn-primary mb-3">
+        	
+          		  Nueva Consulta</a>
+    		</div>
+			
+			</main>
+			</div>
+			<footer class="bg-dark text-white text-center py-3">
+				<div data-th-replace="~{layouts/footer::footer}"></div>
+
+			</footer>
+			<!-- <script type="text/javascript"
+		data-th-href="@{/webjars/bootstrap/js/bootstrap.bundel.min.js}">
+		
+	</script> -->
+			<script
+				data-th-src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

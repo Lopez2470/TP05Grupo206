@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.DTO.CarreraDTO;
 import ar.edu.unju.fi.map.CarreraMapDTO;
+import ar.edu.unju.fi.model.Alumno;
 import ar.edu.unju.fi.model.Carrera;
 import ar.edu.unju.fi.repository.CarreraRepository;
 import ar.edu.unju.fi.service.ICarreraService;
@@ -45,6 +46,18 @@ public class CarreraServiceImp implements ICarreraService {
 	@Override
 	public Carrera buscarCarreraPorCodigo(String codigo) {
 		return carreraRepository.findById(codigo).orElse(null);
+	}
+
+	@Override
+	public List<Alumno> obtenerAlumnosPorCarrera(String codigo) {
+		// TODO Auto-generated method stub
+		return carreraRepository.findAlumnosByCodigo(codigo);
+	}
+
+	@Override
+	public Carrera obtenerCarreraPorAlumno(Alumno alumno) {
+		// TODO Auto-generated method stub
+		return carreraRepository.findByAlumnosContaining(alumno);
 	}
 
 }

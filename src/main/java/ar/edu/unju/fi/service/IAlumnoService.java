@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.DTO.AlumnoDTO;
 import ar.edu.unju.fi.model.Alumno;
+import ar.edu.unju.fi.model.Materia;
 
 
 @Service
@@ -15,6 +16,8 @@ public interface IAlumnoService {
 	public void eliminarAlumno(String lu);
 	public void modificarAlumno(Alumno alumno);
 	public Alumno buscarAlumnoPorLu(String lu);
+	
+	public List<Alumno> buscarAlumnosPorMateria(Materia materia);
 
 
 }
