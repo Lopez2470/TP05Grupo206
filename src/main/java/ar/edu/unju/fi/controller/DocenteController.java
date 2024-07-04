@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import ar.edu.unju.fi.model.Alumno;
 import ar.edu.unju.fi.model.Docente;
 //import ar.edu.unju.fi.model.Docente;
 import ar.edu.unju.fi.service.IDocenteService;
@@ -44,6 +42,7 @@ public class DocenteController {
 		return modelAndView;
 	}
 	
+	
 	  @PostMapping("/guardarDocente") 
 	  public ModelAndView guardarDocente(@Valid @ModelAttribute("nuevoDocente") Docente docenteNuevoParaGuardar,
 				BindingResult bindingResult) { 
@@ -64,8 +63,8 @@ public class DocenteController {
 			}
 		  //ModelAndView modelAndView = new ModelAndView("listaDeDocentes");
 		  // modelAndView.addObject("listadoDocentes",docenteService.mostrarDocentes()); 
-		 return modelAndView; 
-	}
+		 return modelAndView; }
+	  
 
 	  @GetMapping ("/eliminarDocente/{legajo}") 
 	  public ModelAndView borrarDocente(@PathVariable (name="legajo") String legajo) { 

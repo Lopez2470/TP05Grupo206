@@ -64,9 +64,12 @@
 				    data-th-field="*{telefono}" title="Ejemplo: 3885444555." required>	
 				     <div class="text-danger" data-th-if="${#fields.hasErrors('telefono')}" data-th-errors="*{telefono}"></div>	    
 				</div>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn btn-primary me-md-2" type="submit">Guardar Docente</button>
+					<a data-th-href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
+				</div>	
 					
-					
-					<button type="submit" class="btn btn-primary">Guardar Carrera</button>
+				
 				</form>
 	
 			</main>
