@@ -23,43 +23,64 @@
 			<form data-th-object="${nuevoAlumno}"
 				data-th-action="${estado}?@{/modificarAlumno}:@{/guardarAlumno}"
 				method="post">
+				
+				
+				<div>
+					<label for="lu" class="form-label">LU</label> <input type="text"
+						class="form-control" id="lu" data-th-field="*{lu}"
+						aria-describedby="LU Alumno" data-th-readonly="${estado}">
+						
+						<div class="text-danger" data-th-if="${#fields.hasErrors('lu')}" data-th-errors="*{lu}"></div>	
+					<!-- <p class="text-danger" data-th-if="${#fields.hasErrors('lu')}" data-th-errors="*{lu}"></p> -->
+				</div>
 
 				<div>
 					<label for="nombresAlumno" class="form-label">Nombres</label> <input
 						type="text" class="form-control" id="nombresAlumno"
-						data-th-field="*{nombres}" required="required">
+						data-th-field="*{nombres}">
+					<div class="text-danger" data-th-if="${#fields.hasErrors('nombres')}" data-th-errors="*{nombres}"></div>	
+					<!-- <p class="text-danger" data-th-if="${#fields.hasErrors('nombres')}" data-th-errors="*{nombres}"></p> -->
 				</div>
 
 				<div>
 					<label for="apellidoAlumno" class="form-label">Apellido</label> <input
 						type="text" class="form-control" id="apellidoAlumno"
-						data-th-field="*{apellido}" required="required">
+						data-th-field="*{apellido}">
+						
+						<div class="text-danger" data-th-if="${#fields.hasErrors('apellido')}" data-th-errors="*{apellido}"></div>	
+					<!-- <p class="text-danger" data-th-if="${#fields.hasErrors('apellido')}" data-th-errors="*{apellido}"></p> -->
+					
 				</div>
 				
 				<div>
 					<label for="dni" class="form-label">DNI</label> <input type="text"
 						class="form-control" id="dni" data-th-field="*{dni}"
-						required="required">
+						>
+						
+						<div class="text-danger" data-th-if="${#fields.hasErrors('dni')}" data-th-errors="*{dni}"></div>	
+					<!-- <p class="text-danger" data-th-if="${#fields.hasErrors('dni')}" data-th-errors="*{dni}"></p> -->
 				</div>
 
-				<div>
-					<label for="lu" class="form-label">LU</label> <input type="text"
-						class="form-control" id="lu" data-th-field="*{lu}"
-						aria-describedby="LU Alumno" data-th-readonly="${estado}"
-						required="required">
-				</div>
+				
 
 				<div>
 					<label for="email1" class="form-label">Correo Electronico</label> <input
 						type="email" class="form-control" id="email1"
 						aria-describedby="emailHelp" data-th-field="*{email}"
-						required="required">
+						>
+						
+					<div class="text-danger" data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}"></div>	
+					<!-- <p class="text-danger" data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}"></p> -->
 				</div>
 
 				<div>
 					<label for="telefono" class="form-label">Número de Télefono</label>
 					<input type="text" class="form-control" id="telefono"
-						data-th-field="*{telefono}" title="Ejemplo: 3885444555." required="required">
+						data-th-field="*{telefono}" title="Ejemplo: 3885444555." >
+						
+						<div class="text-danger" data-th-if="${#fields.hasErrors('telefono')}" data-th-errors="*{telefono}"></div>	
+					<!-- <p class="text-danger" data-th-if="${#fields.hasErrors('telefono')}" data-th-errors="*{telefono}"></p> -->
+						
 				</div>
 				
 				
@@ -67,12 +88,42 @@
 					<label for="fecha" class="form-label">Fecha de Nac.</label>
 					<input class="form-control" type="date" id="fecha" 
 					data-th-field="*{fechaNacimiento}"
-					value="" required="required">
+					 >
+					
+					<div class="text-danger" data-th-if="${#fields.hasErrors('fechaNacimiento')}" data-th-errors="*{fechaNacimiento}"></div>	
+					<!-- p class="text-danger" data-th-if="${#fields.hasErrors('fechaNacimiento')}" data-th-errors="*{fechaNacimiento}"></p> -->
+					
+					
 				</div>
+				
+				<div>
+						<label for="carrera" class="form-label">Carrera</label>
+						
+								<select id="carrera"  data-th-field="*{carrera.codigo}"
+									class="form-select bg-dark text-white">
+										<option value="">Seleccionar Carrera</option>
+										<option data-th-each="c : ${listadoCarreras}"
+										data-th-value="${c.codigo}"
+										data-th-text="${c.nombre}"></option>
+										
+								</select>
+								<div class="text-danger" data-th-if="${#fields.hasErrors('carrera.codigo')}" data-th-errors="*{carrera.codigo}"></div>
+						
+					</div>
+				
+				
+				
+				
+				
+				
 				<br>
+				
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn btn-primary me-md-2" type="submit">Guardar Alumno</button>
+					 <a data-th-href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
+				</div>
 			
 
-				<button type="submit" class="btn btn-primary">Guardar Alumno</button>
 			</form>
 
 		</main>
