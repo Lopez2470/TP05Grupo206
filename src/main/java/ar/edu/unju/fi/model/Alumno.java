@@ -1,15 +1,20 @@
 package ar.edu.unju.fi.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
@@ -53,5 +58,15 @@ public class Alumno {
 	@NotBlank(message="Debe ingresar el LU")
 	private String lu;
 	
-	private Boolean estado;
+	@NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "codigo")
+    private Carrera carrera;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "materiaAlumno", joinColumns = @JoinColumn(name = "lu"),
+	inverseJoinColumns = @JoinColumn(name = "codigo"))
+	private List<Materia> materias;
+
+	private Boolean estado;	
 }

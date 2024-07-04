@@ -6,13 +6,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Component
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Docente {
 	@Id
@@ -39,5 +42,4 @@ public class Docente {
 	private String telefono;
 	
 	private Boolean estado;
-
 }
