@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import ar.edu.unju.fi.DTO.AlumnoDTO;
 import ar.edu.unju.fi.map.AlumnoMapDTO;
 import ar.edu.unju.fi.model.Alumno;
+import ar.edu.unju.fi.model.Materia;
 import ar.edu.unju.fi.repository.AlumnoRepository;
 import ar.edu.unju.fi.service.IAlumnoService;
 @Service
@@ -46,6 +47,12 @@ public class AlumnoServiceImp implements IAlumnoService {
 	@Override
 	public Alumno buscarAlumnoPorLu(String lu) {
 		return alumnoRepository.findById(lu).orElse(null);
+	}
+
+	@Override
+	public List<Alumno> buscarAlumnosPorMateria(Materia materia) {
+		// TODO Auto-generated method stub
+		return alumnoRepository.findByMateriasContaining(materia);
 	}
 
 }
