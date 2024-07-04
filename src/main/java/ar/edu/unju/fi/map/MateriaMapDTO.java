@@ -15,6 +15,8 @@ public interface MateriaMapDTO {
 	@Mapping(source = "curso",target = "curso")
 	@Mapping(source = "horas",target = "horas")
 	@Mapping(source = "modalidad",target = "modalidad")
+	@Mapping(source = "docente",target = "docente")
+	@Mapping(source = "carrera",target = "carrera")
 	@Mapping(source = "estado",target = "estado")
 	MateriaDTO convertirMateriaAMateriaDTO(Materia materia);
 	
