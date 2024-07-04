@@ -95,10 +95,35 @@
 					
 					
 				</div>
+				
+				<div>
+						<label for="carrera" class="form-label">Carrera</label>
+						
+								<select id="carrera"  data-th-field="*{carrera.codigo}"
+									class="form-select bg-dark text-white">
+										<option value="">Seleccionar Carrera</option>
+										<option data-th-each="c : ${listadoCarreras}"
+										data-th-value="${c.codigo}"
+										data-th-text="${c.nombre}"></option>
+										
+								</select>
+								<div class="text-danger" data-th-if="${#fields.hasErrors('carrera.codigo')}" data-th-errors="*{carrera.codigo}"></div>
+						
+					</div>
+				
+				
+				
+				
+				
+				
 				<br>
+				
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn btn-primary me-md-2" type="submit">Guardar Alumno</button>
+					 <a data-th-href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
+				</div>
 			
 
-				<button type="submit" class="btn btn-primary">Guardar Alumno</button>
 			</form>
 
 		</main>
