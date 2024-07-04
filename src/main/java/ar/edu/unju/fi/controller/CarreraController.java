@@ -15,8 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.model.Alumno;
 import ar.edu.unju.fi.model.Carrera;
-import ar.edu.unju.fi.model.Docente;
-import ar.edu.unju.fi.repository.CarreraRepository;
+
 import ar.edu.unju.fi.service.IAlumnoService;
 import ar.edu.unju.fi.service.ICarreraService;
 import jakarta.validation.Valid;
@@ -41,7 +40,6 @@ public class CarreraController {
 		return modelAndView;
 	}
 	
-
 	@GetMapping("/formularioCarrera")
 	public ModelAndView getFormCarrera() {
 		ModelAndView modelAndView = new ModelAndView("formCarrera");
@@ -73,8 +71,6 @@ public class CarreraController {
 		 return modelAndView; 
 	}
 		
-	
-
 
 	
 	  @GetMapping ("/eliminarCarrera/{codigo}") 
@@ -112,36 +108,9 @@ public class CarreraController {
 				modelAndView.addObject("cargaDeCarreraErrorMsj", "Error al modificar el objeto Carrera");
 			}
 
-		 // ModelAndView modelAndView = new ModelAndView("listaDeCarreras");
-		 // modelAndView.addObject("listadoCarreras", carreraService.mostrarCarreras());
 		return modelAndView;
 	  }
 	  
-	  /*
-	  @GetMapping("/formularioCarreraAlumno")
-		public ModelAndView getFormAlumnosPorCarrera() {
-			ModelAndView modelAndView = new ModelAndView("formCarreraAlumno");
-			modelAndView.addObject("listadoCarreras", carreraService.mostrarCarreras());
-			return modelAndView;
-		}
-	  
-	  @PostMapping("/formularioCarreraAlumno}") 
-	  public ModelAndView getFormAlumnosCarrera(@PathVariable(name="codigo") String codigo) { 	
-		  System.out.println("Carrera codigo: " + codigo);
-		  Carrera carrera = carreraService.buscarCarreraPorCodigo(codigo);
-		  List<Alumno> alumnos = carreraService.obtenerAlumnosPorCarrera(carrera);
-		  System.out.println("Alumos: " + alumnos);
-	
-		  Carrera carreraAMostrar = carreraService.buscarCarreraPorCodigo(codigo);
-		  
-		  ModelAndView modelAndView = new ModelAndView("formCarreraAlumno");
-		  //List<Alumno> alumnos = carreraService.obtenerAlumnosPorCarrera(codigo);
-		  modelAndView.addObject("carrera", carreraAMostrar);
-		  modelAndView.addObject("alumnos", alumnos); 
-		  System.out.println("Carrera: " + carreraAMostrar.getCodigo());
-		  return modelAndView; 
-	  }
-*/
 	  
 	  @GetMapping("/formularioCarreraAlumno")
 	  public ModelAndView getFormulario() {
